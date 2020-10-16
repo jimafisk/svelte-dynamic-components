@@ -33,6 +33,8 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
+    // https://github.com/lukeed/navaid/issues/5#issuecomment-653823512
+    inlineDynamicImports: true,
 		file: 'public/build/bundle.js'
 	},
 	plugins: [

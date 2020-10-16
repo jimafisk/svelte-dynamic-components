@@ -1,12 +1,19 @@
 <script>
   export let name;
-  import DynamicComp from './DynamicComponent.svelte';
+
+  import { onMount } from 'svelte';
+
+  let Comp;
+  onMount(async () => {
+    import('./DynamicComponent.svelte').then(res => Comp = res.default)
+  });
+
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-  <svelte:component this={DynamicComp} />
+  <svelte:component this={Comp} />
 </main>
 
 <style>
